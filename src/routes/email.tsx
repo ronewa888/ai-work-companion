@@ -39,7 +39,14 @@ function EmailPage() {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        ["--primary" as any]: "oklch(0.55 0.18 264)",
+        ["--ring" as any]: "oklch(0.55 0.18 264)",
+        ["--accent" as any]: "oklch(0.94 0.04 264)",
+        ["--accent-foreground" as any]: "oklch(0.3 0.1 264)",
+      }}
+    >
       <PageHeader icon={Mail} title="Smart Email Generator" description="Generate a polished email tuned to tone and audience." />
       <div className="grid gap-6 lg:grid-cols-2">
         <div className="rounded-xl border bg-card p-5 space-y-4">
