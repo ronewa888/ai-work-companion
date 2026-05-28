@@ -108,13 +108,30 @@ function RootShell({ children }: { children: React.ReactNode }) {
   );
 }
 
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
+import { Toaster } from "@/components/ui/sonner";
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <SidebarProvider>
+        <div className="flex min-h-screen w-full bg-background">
+          <AppSidebar />
+          <div className="flex-1 flex flex-col">
+            <header className="sticky top-0 z-10 h-14 flex items-center gap-3 border-b bg-background/80 backdrop-blur px-4">
+              <SidebarTrigger />
+              <span className="text-sm font-medium text-muted-foreground">AI Workplace Productivity Assistant</span>
+            </header>
+            <main className="flex-1 px-6 py-8 max-w-6xl w-full mx-auto">
+              <Outlet />
+            </main>
+          </div>
+        </div>
+        <Toaster />
+      </SidebarProvider>
     </QueryClientProvider>
   );
 }
