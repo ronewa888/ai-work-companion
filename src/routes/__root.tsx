@@ -75,10 +75,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "FlowMind AI — Your Intelligent Workplace Co-pilot" },
       { name: "description", content: "FlowMind AI helps professionals automate emails, meeting notes, task planning, and research." },
       { name: "author", content: "FlowMind AI" },
-      { property: "og:title", content: "FlowMind AI" },
-      { property: "og:description", content: "Your intelligent workplace co-pilot." },
+      { property: "og:title", content: "FlowMind AI — Your Intelligent Workplace Co-pilot" },
+      { property: "og:description", content: "FlowMind AI helps professionals automate emails, meeting notes, task planning, and research." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "FlowMind AI — Your Intelligent Workplace Co-pilot" },
+      { name: "twitter:description", content: "FlowMind AI helps professionals automate emails, meeting notes, task planning, and research." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3a6b2399-12cd-47e7-90be-dc2625cc5f76/id-preview-dbaf5f28--126f3c72-1604-4e90-b5e0-0eadbcda12f3.lovable.app-1780040817996.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3a6b2399-12cd-47e7-90be-dc2625cc5f76/id-preview-dbaf5f28--126f3c72-1604-4e90-b5e0-0eadbcda12f3.lovable.app-1780040817996.png" },
     ],
     links: [
       {
