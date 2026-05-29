@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { LayoutDashboard, Mail, FileText, ListTodo, Search, MessageSquare, Sparkles } from "lucide-react";
+import { LayoutDashboard, Mail, FileText, ListTodo, Search, MessageSquare, Zap, Settings } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -28,13 +28,13 @@ export function AppSidebar() {
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader>
-        <div className="flex items-center gap-2 px-2 py-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-            <Sparkles className="h-5 w-5" />
+        <div className="flex items-center gap-2.5 px-2 py-3">
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-primary text-white shadow-[0_0_20px_-2px_rgba(236,72,153,0.5)]">
+            <Zap className="h-5 w-5" fill="currentColor" />
           </div>
           <div className="flex flex-col group-data-[collapsible=icon]:hidden">
-            <span className="text-sm font-semibold leading-tight">WorkAI</span>
-            <span className="text-xs text-muted-foreground leading-tight">Productivity Assistant</span>
+            <span className="text-sm font-bold font-display text-gradient leading-tight">FlowMind AI</span>
+            <span className="text-[11px] text-muted-foreground leading-tight">Workplace co-pilot</span>
           </div>
         </div>
       </SidebarHeader>
@@ -43,23 +43,36 @@ export function AppSidebar() {
           <SidebarGroupLabel>Workspace</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.url}>
-                  <SidebarMenuButton asChild isActive={pathname === item.url} tooltip={item.title}>
-                    <Link to={item.url}>
-                      <item.icon className="h-4 w-4" />
-                      <span>{item.title}</span>
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
+              {items.map((item) => {
+                const active = pathname === item.url;
+                return (
+                  <SidebarMenuItem key={item.url}>
+                    <SidebarMenuButton
+                      asChild
+                      isActive={active}
+                      tooltip={item.title}
+                      className={
+                        active
+                          ? "!bg-gradient-primary !text-white shadow-[0_0_18px_-4px_rgba(236,72,153,0.55)] hover:!opacity-95"
+                          : "hover:bg-primary/10"
+                      }
+                    >
+                      <Link to={item.url}>
+                        <item.icon className="h-4 w-4" />
+                        <span>{item.title}</span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                );
+              })}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <div className="px-2 py-2 text-[11px] text-muted-foreground group-data-[collapsible=icon]:hidden">
-          AI-generated content may require human review.
+        <div className="flex items-center gap-2 px-2 py-2 group-data-[collapsible=icon]:hidden">
+          <Settings className="h-4 w-4 text-muted-foreground" />
+          <span className="text-xs text-muted-foreground">Settings</span>
         </div>
       </SidebarFooter>
     </Sidebar>
